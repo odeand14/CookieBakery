@@ -2,14 +2,20 @@
 {
     public class CookieBakery : ICookie
     {
-        public string GetName()
+        private readonly ICookie _baseCookie;
+
+        public CookieBakery(ICookie baseCookie)
         {
-            throw new System.NotImplementedException();
+            _baseCookie = baseCookie;
+        }
+        public virtual string GetName()
+        {
+            return _baseCookie.GetName();
         }
 
-        public string GetBakery()
+        public virtual string GetBakery()
         {
-            throw new System.NotImplementedException();
+            return _baseCookie.GetBakery();
         }
     }
 }

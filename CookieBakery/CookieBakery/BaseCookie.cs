@@ -2,14 +2,22 @@
 {
     public class BaseCookie : ICookie
     {
-        public string GetName()
+        private readonly string _name;
+        private readonly string _bakery;
+
+        public BaseCookie(string name = "Cookie", string bakery = "Johny's Bakery")
         {
-            throw new System.NotImplementedException();
+            _name = name;
+            _bakery = bakery;
+        }
+        public virtual string GetName()
+        {
+            return _name;
         }
 
-        public string GetBakery()
+        public virtual string GetBakery()
         {
-            throw new System.NotImplementedException();
+            return _bakery;
         }
     }
 }

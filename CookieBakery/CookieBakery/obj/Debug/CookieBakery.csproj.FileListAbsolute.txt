@@ -1,0 +1,5 @@
+C:\Users\Andreas\Documents\Visual Studio 2015\Projects\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.pdb
+C:\Users\Andreas\Documents\Visual Studio 2015\Projects\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.csprojResolveAssemblyReference.cache
+C:\Users\Andreas\Documents\Visual Studio 2015\Projects\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.pdb
+C:\Users\Andreas\Documents\Visual Studio 2015\Projects\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.exe
+C:\Users\Andreas\Documents\Visual Studio 2015\Projects\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.exe
