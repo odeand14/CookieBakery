@@ -13,7 +13,9 @@ namespace CookieBakery
             ICookie cookie2 = new ChoclateChip(cookie1);
 
             Console.Out.WriteLine(cookie2.GetName() + " from " + cookie2.GetBakery());
-            Console.Out.WriteLine(cookie1);
+
+            ICookie cookie3 = new NutsAndRaisins(cookie1);
+            Console.Out.WriteLine(cookie3.GetName() + " from " + cookie3.GetBakery());
 
         }
 
