@@ -9,7 +9,7 @@ namespace CookieBakery
 {
     class Customer
     {
-        private static string _name;
+        private string _name;
 
         public virtual string GetName()
         {
@@ -36,7 +36,7 @@ namespace CookieBakery
                     CookieBakery.cookies.Remove(c);
                 }
                 max = Random.Next(0, 2500);
-                while (time.ElapsedMilliseconds < max) { }
+                while (time.ElapsedMilliseconds < 2500) { }
                 time.Restart();
             }
         }
