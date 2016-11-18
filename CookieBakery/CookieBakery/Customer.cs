@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
 
 namespace CookieBakery
@@ -23,16 +19,19 @@ namespace CookieBakery
 
         public void buyCookie()
         {
+            var attempts = 0;
+            var maxAttempts = 40;
             var Random = new Random();
             var max = Random.Next();
             var time = new Stopwatch();
             time.Start();
-            while (true)
+            while (attempts < maxAttempts)
             {
-                CookieBakery.sellToCustomer(this);
-                max = Random.Next(0, 2500);
+                max = Random.Next(1000, 1100);
                 while (time.ElapsedMilliseconds < max) { }
+                CookieBakery.sellToCustomer(this);
                 time.Restart();
+                attempts++;
             }
         }
     }

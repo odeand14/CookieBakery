@@ -41,7 +41,8 @@ namespace CookieBakery
                 if (cookies.Count != 0)
                 {
                     ICookie c = (ICookie)cookies[0];
-                    Console.WriteLine("\t\t\t\t\t\t\t\t\t\t\t" + customer.GetName() + " recieved " + c.GetName() + " #" + c.GetNumber());
+                    string output = customer.GetName() + " recieved " + c.GetName() + " #" + c.GetNumber();
+                    Console.WriteLine("{0, 115}", output);
                     cookies.Remove(c);
                 }
             }
@@ -75,7 +76,7 @@ namespace CookieBakery
                     cookies.Add(c);
                     Console.WriteLine(c.GetBakery() + " made " + c.GetName() + " #" + c.GetNumber());
                 }
-                while (time.ElapsedMilliseconds < 1000)
+                while (time.ElapsedMilliseconds < 667)
                 { }
                 time.Restart();
                 cookieCounter++;
