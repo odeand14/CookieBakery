@@ -8,3 +8,8 @@ C:\Users\Xoriath\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\C
 C:\Users\Xoriath\Source\Repos\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.exe
 C:\Users\Xoriath\Source\Repos\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.pdb
 C:\Users\Xoriath\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.csprojResolveAssemblyReference.cache
+C:\Users\Erlend\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.exe
+C:\Users\Erlend\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.pdb
+C:\Users\Erlend\Source\Repos\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.exe
+C:\Users\Erlend\Source\Repos\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.pdb
+C:\Users\Erlend\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.csprojResolveAssemblyReference.cache

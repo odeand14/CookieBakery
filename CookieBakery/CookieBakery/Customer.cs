@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace CookieBakery
 {
-    class Customer
+    public class Customer
     {
         private string _name;
 
@@ -29,14 +29,9 @@ namespace CookieBakery
             time.Start();
             while (true)
             {
-                if (CookieBakery.cookies.Count != 0)
-                {
-                    ICookie c = (ICookie)CookieBakery.cookies[0];
-                    Console.WriteLine("\t\t\t\t\t\t" + _name + " recieved " + c.GetName() + " #" + c.GetNumber());
-                    CookieBakery.cookies.Remove(c);
-                }
+                CookieBakery.sellToCustomer(this);
                 max = Random.Next(0, 2500);
-                while (time.ElapsedMilliseconds < 2500) { }
+                while (time.ElapsedMilliseconds < max) { }
                 time.Restart();
             }
         }

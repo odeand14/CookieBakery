@@ -5,9 +5,6 @@ namespace CookieBakery
 {
     public class Client
     {
-
-        private readonly Object _cookieLock = new Object();
-
         public Client()
         {
 
