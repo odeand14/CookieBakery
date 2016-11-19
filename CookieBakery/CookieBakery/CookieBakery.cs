@@ -32,14 +32,15 @@ namespace CookieBakery {
                 if (_cookies.Count != 0) {
                     var c = (ICookie) _cookies[0];
                     var output = customer.GetName() + " recieved " + c.GetBakery() + " " + c.GetName() + " #" + c.GetNumber();
-                    Console.WriteLine("{0, 115}", output);
+                    var rightAlignment = Console.BufferWidth;
+                    Console.WriteLine("{0, "+ rightAlignment + "}", output);
                     _cookies.Remove(c);
                 }
             }
         }
 
         public void BakeCookies() {
-            var dailyQuota = 50;
+            var dailyQuota = 25;
             var cookieCounter = 1;
             var time = new Stopwatch();
             time.Start();

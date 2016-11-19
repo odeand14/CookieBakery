@@ -20,6 +20,8 @@ namespace CookieBakery
             FredGrab.Start();
             TedGrab.Start();
             GregGrab.Start();
+
+            System.Console.ReadKey(true);
         }
     }
 }
