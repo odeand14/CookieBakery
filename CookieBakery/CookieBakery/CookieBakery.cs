@@ -2,82 +2,64 @@
 using System.Collections;
 using System.Diagnostics;
 
-namespace CookieBakery
-{
-    public class CookieBakery : ICookie
-    {
-        private static Object _cookieLock = new Object();
-        private static ArrayList cookies = new ArrayList();
+namespace CookieBakery {
+    public class CookieBakery : ICookie {
+        private static object _cookieLock = new object();
+        private static ArrayList _cookies = new ArrayList();
         private readonly ICookie _baseCookie;
 
-        public ArrayList getCookies()
-        {
-            return cookies;
+        public ArrayList GetCookies() {
+            return _cookies;
         }
 
-        public CookieBakery(ICookie baseCookie)
-        {
+        public CookieBakery(ICookie baseCookie) {
             _baseCookie = baseCookie;
         }
-        public virtual string GetName()
-        {
+        public virtual string GetName() {
             return _baseCookie.GetName();
         }
 
-        public virtual string GetBakery()
-        {
+        public virtual string GetBakery() {
             return _baseCookie.GetBakery();
         }
 
-        public virtual int GetNumber()
-        {
+        public virtual int GetNumber() {
             return _baseCookie.GetNumber();
         }
 
-        public static void sellToCustomer(Customer customer)
-        {
-            lock (_cookieLock)
-            {
-                if (cookies.Count != 0)
-                {
-                    ICookie c = (ICookie)cookies[0];
-                    string output = customer.GetName() + " recieved " + c.GetName() + " #" + c.GetNumber();
+        public static void SellToCustomer(Customer customer) {
+            lock (_cookieLock) {
+                if (_cookies.Count != 0) {
+                    var c = (ICookie) _cookies[0];
+                    var output = customer.GetName() + " recieved " + c.GetBakery() + " " + c.GetName() + " #" + c.GetNumber();
                     Console.WriteLine("{0, 115}", output);
-                    cookies.Remove(c);
+                    _cookies.Remove(c);
                 }
             }
         }
 
-        public void bakeCookies()
-        {
+        public void BakeCookies() {
             var dailyQuota = 50;
             var cookieCounter = 1;
             var time = new Stopwatch();
             time.Start();
-            while (cookieCounter <= dailyQuota)
-            {
-                Random rand = new Random();
+            while (cookieCounter <= dailyQuota) {
+                var rand = new Random();
                 var type = rand.Next(3);
+                ICookie c;
+
                 if (type == 0)
-                {
-                    ICookie c = new BaseCookie(cookieCounter);
-                    cookies.Add(c);
-                    Console.WriteLine(c.GetBakery() + " made " + c.GetName() + " #" + c.GetNumber());
-                }
+                    c = new BaseCookie(cookieCounter);
                 else if (type == 1)
-                {
-                    ICookie c = new ChoclateChip(new BaseCookie(cookieCounter));
-                    cookies.Add(c);
-                    Console.WriteLine(c.GetBakery() + " made " + c.GetName() + " #" + c.GetNumber());
-                }
+                    c = new ChoclateChip(new BaseCookie(cookieCounter));
+                else if (type == 2)
+                    c = new Vanilla(new BaseCookie(cookieCounter));
                 else
-                {
-                    ICookie c = new NutsAndRaisins(new BaseCookie(cookieCounter));
-                    cookies.Add(c);
-                    Console.WriteLine(c.GetBakery() + " made " + c.GetName() + " #" + c.GetNumber());
-                }
-                while (time.ElapsedMilliseconds < 667)
-                { }
+                    c = new NutsAndRaisins(new BaseCookie(cookieCounter));
+
+                _cookies.Add(c);
+                Console.WriteLine(c.GetBakery() + " made " + c.GetName() + " #" + c.GetNumber());
+                while (time.ElapsedMilliseconds < 667) { }
                 time.Restart();
                 cookieCounter++;
             }

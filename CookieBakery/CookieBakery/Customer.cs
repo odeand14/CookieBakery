@@ -17,19 +17,19 @@ namespace CookieBakery
             _name = name;
         }
 
-        public void buyCookie()
+        public void BuyCookie()
         {
             var attempts = 0;
             var maxAttempts = 40;
-            var Random = new Random();
-            var max = Random.Next();
+            var random = new Random();
+            var max = random.Next();
             var time = new Stopwatch();
             time.Start();
             while (attempts < maxAttempts)
             {
-                max = Random.Next(1000, 1100);
+                max = random.Next(1000, 1100);
                 while (time.ElapsedMilliseconds < max) { }
-                CookieBakery.sellToCustomer(this);
+                CookieBakery.SellToCustomer(this);
                 time.Restart();
                 attempts++;
             }

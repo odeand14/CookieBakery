@@ -6,15 +6,15 @@ namespace CookieBakery
     {
         static void Main()
         {
-            CookieBakery baker = new CookieBakery(new BaseCookie());            
-            Customer Fred = new Customer("Fred");
-            Customer Ted = new Customer("Ted");
-            Customer Greg = new Customer("Greg");
+            var baker = new CookieBakery(new BaseCookie());            
+            var Fred = new Customer("Fred");
+            var Ted = new Customer("Ted");
+            var Greg = new Customer("Greg");
 
-            Thread CookieBaker = new Thread(new ThreadStart(baker.bakeCookies));
-            Thread FredGrab = new Thread(new ThreadStart(Fred.buyCookie));
-            Thread TedGrab = new Thread(new ThreadStart(Ted.buyCookie));
-            Thread GregGrab = new Thread(new ThreadStart(Greg.buyCookie));
+            var CookieBaker = new Thread(new ThreadStart(baker.BakeCookies));
+            var FredGrab = new Thread(new ThreadStart(Fred.BuyCookie));
+            var TedGrab = new Thread(new ThreadStart(Ted.BuyCookie));
+            var GregGrab = new Thread(new ThreadStart(Greg.BuyCookie));
 
             CookieBaker.Start();
             FredGrab.Start();

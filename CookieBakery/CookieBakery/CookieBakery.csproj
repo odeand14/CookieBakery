@@ -43,6 +43,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="ICookie.cs" />
     <Compile Include="NutsAndRaisins.cs" />
+    <Compile Include="Vanilla.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
