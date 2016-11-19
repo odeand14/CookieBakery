@@ -13,3 +13,8 @@ C:\Users\Erlend\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\Co
 C:\Users\Erlend\Source\Repos\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.exe
 C:\Users\Erlend\Source\Repos\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.pdb
 C:\Users\Erlend\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.csprojResolveAssemblyReference.cache
+C:\Users\N\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.exe
+C:\Users\N\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.pdb
+C:\Users\N\Source\Repos\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.exe
+C:\Users\N\Source\Repos\CookieBakery\CookieBakery\CookieBakery\bin\Debug\CookieBakery.pdb
+C:\Users\N\Source\Repos\CookieBakery\CookieBakery\CookieBakery\obj\Debug\CookieBakery.csprojResolveAssemblyReference.cache
