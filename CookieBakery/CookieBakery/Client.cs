@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace CookieBakery
 {
@@ -6,22 +8,24 @@ namespace CookieBakery
     {
         static void Main()
         {
-            var baker = new CookieBakery(new BaseCookie());            
-            var Fred = new Customer("Fred");
-            var Ted = new Customer("Ted");
-            var Greg = new Customer("Greg");
+            var baker = new CookieBakery(new BaseCookie());
+            var cookieBaker = new Thread(baker.BakeCookies);
+            var customerList = new List<Customer> {new Customer("Fred"), new Customer("Ted"), new Customer("Greg")};
 
-            var CookieBaker = new Thread(new ThreadStart(baker.BakeCookies));
-            var FredGrab = new Thread(new ThreadStart(Fred.BuyCookie));
-            var TedGrab = new Thread(new ThreadStart(Ted.BuyCookie));
-            var GregGrab = new Thread(new ThreadStart(Greg.BuyCookie));
+            cookieBaker.Start();
 
-            CookieBaker.Start();
-            FredGrab.Start();
-            TedGrab.Start();
-            GregGrab.Start();
+            foreach (var customer in customerList) {
+                new Thread(customer.BuyCookie).Start();
+            }
 
-            System.Console.ReadKey(true);
+            Thread.Sleep(100);
+            while (baker.Running) {}
+
+            foreach (var customer in customerList) {
+                Console.WriteLine("{0} recieved a total of {1} cookie(s)", customer.GetName(), customer.PurchasedCookies);
+            }
+
+            Console.ReadKey(true);
         }
     }
 }

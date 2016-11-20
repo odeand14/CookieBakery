@@ -6,6 +6,7 @@ namespace CookieBakery
     public class Customer
     {
         private string _name;
+        public int PurchasedCookies { get; private set; }
 
         public virtual string GetName()
         {
@@ -15,6 +16,7 @@ namespace CookieBakery
         public Customer(string name)
         {
             _name = name;
+            PurchasedCookies = 0;
         }
 
         public void BuyCookie()
@@ -29,7 +31,7 @@ namespace CookieBakery
             {
                 max = random.Next(1000, 1100);
                 while (time.ElapsedMilliseconds < max) { }
-                CookieBakery.SellToCustomer(this);
+                if (CookieBakery.SellToCustomer(this)) PurchasedCookies++;
                 time.Restart();
                 attempts++;
             }
