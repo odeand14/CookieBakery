@@ -14,14 +14,16 @@ namespace CookieBakery
 
             cookieBaker.Start();
 
-            foreach (var customer in customerList) {
+            foreach (var customer in customerList)
+            {
                 new Thread(customer.BuyCookie).Start();
             }
 
             Thread.Sleep(100);
             while (baker.Running) {}
 
-            foreach (var customer in customerList) {
+            foreach (var customer in customerList)
+            {
                 Console.WriteLine("{0} recieved a total of {1} cookie(s)", customer.GetName(), customer.PurchasedCookies);
             }
 

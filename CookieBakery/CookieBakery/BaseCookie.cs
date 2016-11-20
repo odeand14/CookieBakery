@@ -16,7 +16,8 @@ namespace CookieBakery
             _name = name;
             _bakery = bakery == "" ? RandomBakery() : bakery;
         }
-        private string RandomBakery() {
+        private string RandomBakery()
+        {
             return Bakeries[_random.Next(0, Bakeries.Count)];
         }
 
