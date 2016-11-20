@@ -4,34 +4,43 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace CookieBakery {
+namespace CookieBakery
+{
     public class CookieBakery : ICookie {
         private static object _cookieLock = new object();
         private static ArrayList _cookies = new ArrayList();
         private readonly ICookie _baseCookie;
 
-        public ArrayList GetCookies() {
+        public ArrayList GetCookies()
+        {
             return _cookies;
         }
 
-        public CookieBakery(ICookie baseCookie) {
+        public CookieBakery(ICookie baseCookie)
+        {
             _baseCookie = baseCookie;
         }
-        public virtual string GetName() {
+        public virtual string GetName()
+        {
             return _baseCookie.GetName();
         }
 
-        public virtual string GetBakery() {
+        public virtual string GetBakery()
+        {
             return _baseCookie.GetBakery();
         }
 
-        public virtual int GetNumber() {
+        public virtual int GetNumber()
+        {
             return _baseCookie.GetNumber();
         }
 
-        public static void SellToCustomer(Customer customer) {
-            lock (_cookieLock) {
-                if (_cookies.Count != 0) {
+        public static void SellToCustomer(Customer customer)
+        {
+            lock (_cookieLock)
+            {
+                if (_cookies.Count != 0)
+                {
                     var c = (ICookie) _cookies[0];
                     var output = customer.GetName() + " recieved " + c.GetBakery() + " " + c.GetName() + " #" + c.GetNumber();
                     var rightAlignment = Console.BufferWidth;
@@ -41,12 +50,14 @@ namespace CookieBakery {
             }
         }
 
-        public void BakeCookies() {
+        public void BakeCookies()
+        {
             var dailyQuota = 25;
             var cookieCounter = new List<int>() {1,1,1,1};
             var time = new Stopwatch();
             time.Start();
-            while (cookieCounter.Sum() <= dailyQuota) {
+            while (cookieCounter.Sum() <= dailyQuota)
+            {
                 var rand = new Random();
                 var type = rand.Next(cookieCounter.Count);
                 ICookie c;
