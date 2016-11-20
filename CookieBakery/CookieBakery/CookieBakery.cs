@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace CookieBakery {
     public class CookieBakery : ICookie {
@@ -41,29 +43,29 @@ namespace CookieBakery {
 
         public void BakeCookies() {
             var dailyQuota = 25;
-            var cookieCounter = 1;
+            var cookieCounter = new List<int>() {1,1,1,1};
             var time = new Stopwatch();
             time.Start();
-            while (cookieCounter <= dailyQuota) {
+            while (cookieCounter.Sum() <= dailyQuota) {
                 var rand = new Random();
-                var type = rand.Next(3);
+                var type = rand.Next(cookieCounter.Count);
                 ICookie c;
 
                 if (type == 0)
-                    c = new BaseCookie(cookieCounter);
+                    c = new BaseCookie(cookieCounter[0]++);
                 else if (type == 1)
-                    c = new ChoclateChip(new BaseCookie(cookieCounter));
+                    c = new ChoclateChip(new BaseCookie(cookieCounter[1]++));
                 else if (type == 2)
-                    c = new Vanilla(new BaseCookie(cookieCounter));
+                    c = new Vanilla(new BaseCookie(cookieCounter[2]++));
                 else
-                    c = new NutsAndRaisins(new BaseCookie(cookieCounter));
+                    c = new NutsAndRaisins(new BaseCookie(cookieCounter[3]++));
 
                 _cookies.Add(c);
                 Console.WriteLine(c.GetBakery() + " made " + c.GetName() + " #" + c.GetNumber());
                 while (time.ElapsedMilliseconds < 667) { }
                 time.Restart();
-                cookieCounter++;
             }
+            Console.WriteLine("Daily quota of {0} met. Stopping cookie production :(", dailyQuota);
         }
     }
 }
