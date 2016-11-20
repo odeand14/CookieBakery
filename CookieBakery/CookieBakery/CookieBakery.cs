@@ -55,10 +55,10 @@ namespace CookieBakery
         {
             Running = true;
             var dailyQuota = 25;
-            var cookieCounter = new List<int>() {1,1,1,1};
+            var cookieCounter = new List<int>() {0,0,0,0};
             var time = new Stopwatch();
             time.Start();
-            while (cookieCounter.Sum() <= dailyQuota)
+            while (cookieCounter.Sum() < dailyQuota)
             {
                 var rand = new Random();
                 var type = rand.Next(cookieCounter.Count);
@@ -74,7 +74,7 @@ namespace CookieBakery
                     c = new NutsAndRaisins(new BaseCookie(cookieCounter[3]++));
 
                 _cookies.Add(c);
-                Console.WriteLine(c.GetBakery() + " made " + c.GetName() + " #" + c.GetNumber());
+                Console.WriteLine(c.GetBakery() + " made " + c.GetName() + " #" + (c.GetNumber() + 1));
                 while (time.ElapsedMilliseconds < 667) { }
                 time.Restart();
             }
