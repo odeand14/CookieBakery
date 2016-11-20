@@ -9,6 +9,7 @@ namespace CookieBakery {
         private static object _cookieLock = new object();
         private static ArrayList _cookies = new ArrayList();
         private readonly ICookie _baseCookie;
+        public bool Running { get; private set; }
 
         public ArrayList GetCookies() {
             return _cookies;
@@ -29,7 +30,7 @@ namespace CookieBakery {
             return _baseCookie.GetNumber();
         }
 
-        public static void SellToCustomer(Customer customer) {
+        public static bool SellToCustomer(Customer customer) {
             lock (_cookieLock) {
                 if (_cookies.Count != 0) {
                     var c = (ICookie) _cookies[0];
@@ -37,11 +38,14 @@ namespace CookieBakery {
                     var rightAlignment = Console.BufferWidth;
                     Console.WriteLine("{0, "+ rightAlignment + "}", output);
                     _cookies.Remove(c);
+                    return true;
                 }
             }
+            return false;
         }
 
         public void BakeCookies() {
+            Running = true;
             var dailyQuota = 25;
             var cookieCounter = new List<int>() {1,1,1,1};
             var time = new Stopwatch();
@@ -65,7 +69,8 @@ namespace CookieBakery {
                 while (time.ElapsedMilliseconds < 667) { }
                 time.Restart();
             }
-            Console.WriteLine("Daily quota of {0} met. Stopping cookie production :(", dailyQuota);
+            Running = false;
+            Console.WriteLine("Daily quota of {0} cookies total met. Stopping cookie production :(", dailyQuota);
         }
     }
 }
